@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function CardMovie({ id, title, poster_path, overview }){
+function CardsMovie({ id, title, poster_path, overview }){
     return(
         <Link to={`/movieDetail/${id}`}>
             <div  style={{width: 300, height: 400, margin: "50px"}}> 
@@ -12,4 +12,4 @@ function CardMovie({ id, title, poster_path, overview }){
     )
 }
 
-export default CardMovie
+export default CardsMovie
