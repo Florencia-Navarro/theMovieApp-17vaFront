@@ -1,4 +1,4 @@
-import MoviesList from "../MoviesList/MoviesList"
+import MoviesList from "../MoviesList/MoviesLists"
 
 
 function SlideShowBanner() {

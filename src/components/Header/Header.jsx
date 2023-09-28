@@ -12,9 +12,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
-import { Link } from '@mui/material';
+import { Link } from "react-router-dom";
 
-const pages = ['Home', 'Ultimos lanzamientos', 'Populares'];
+//  const pages = ['Home', 'Ultimos lanzamientos', 'Populares'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -40,24 +40,27 @@ function Header() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <Link to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="span"
+              
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              THE MOVIE APP
+            </Typography>
+          </Link>
+          
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -88,13 +91,21 @@ function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link to={`/${page}`}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </Link>
+              {/* {pages.map((page) => ( */}
+                
+                  <MenuItem  onClick={handleCloseNavMenu}>
+                    <Link to="/">
+                      <Typography textAlign="center">HOME</Typography>
+                    </Link>
+                    <Link to="/movieList/now_playing">
+                      <Typography textAlign="center">ULTIMOS LANZAMIENTOS</Typography>
+                    </Link>
+                    <Link to="/movieList/popular">
+                      <Typography textAlign="center">POPULARES</Typography>
+                    </Link>
+                    
                   </MenuItem>
-              ))}
+              {/* ))} */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -117,25 +128,40 @@ function Header() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Link to={`/${page}`}>
+            {/* {pages.map((page) => ( */}
+              <Link to="/">
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  HOME
                 </Button>
               </Link>
-            ))}
+              <Link to="/movieList/now_playing">
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  ULTIMOS LANZAMIENTOS
+                </Button>
+              </Link>
+              <Link to="/movieList/popular">
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  POPULARES
+                </Button>
+              </Link>
+            {/* ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            {/* <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
