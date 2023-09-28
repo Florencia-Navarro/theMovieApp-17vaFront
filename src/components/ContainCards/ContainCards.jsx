@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
-import CardMovie from "../CardMovie/CardMovie"
+import CardsMovie from "../CardMovie/CardsMovie"
 
 
 function ContainCards() {
@@ -40,7 +40,7 @@ function ContainCards() {
 
     return (
       <>
-        { allMovies.map( ({ id, title, poster_path, overview }) => <CardMovie key={id} id={id} title={title} poster_path={poster_path} overview={overview}/>
+        { allMovies.map( ({ id, title, poster_path, overview }) => <CardsMovie key={id} id={id} title={title} poster_path={poster_path} overview={overview}/>
           
         ) }
       </>
