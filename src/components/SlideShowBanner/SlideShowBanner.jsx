@@ -31,7 +31,7 @@ function SlideShowBanner() {
   useEffect(() => {
     const getMovies = async () => {
       try{
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) 
+        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`) 
         setAllMovies(data.results)
       } catch (error) {
         console.log(error)
