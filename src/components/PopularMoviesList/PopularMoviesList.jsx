@@ -49,7 +49,7 @@ import useMovies from '../useMovies';
         variant="h6"
         noWrap
         component="div"
-        sx={{margin: "10px auto"}}
+        sx={{margin: "10px auto",position: "sticky", top: 0, zIndex: 1, backgroundColor: "#fff"}}
       >
         PELICULAS POPULARES
       </Typography>

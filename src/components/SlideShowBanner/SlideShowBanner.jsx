@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 
 // Import Swiper styles
@@ -16,6 +16,8 @@ import './../../styles.css';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import useMovies from "../useMovies";
+import { Button, Stack } from "@mui/material";
+import { PuffLoader } from "react-spinners";
 
 function SlideShowBanner() {
 
@@ -27,6 +29,7 @@ function SlideShowBanner() {
   };
 
   // const [ allMovies, setAllMovies ] = useState([])
+  const [ loading, setLoading ] = useState(true)
 
   const { data, getMovies } = useMovies([])
   
@@ -45,6 +48,7 @@ function SlideShowBanner() {
     //   }
     // }
     // getMovies()
+    setLoading(false)
   }, [categoryMovie])
 
   // console.log(allMovies)
@@ -66,7 +70,7 @@ function SlideShowBanner() {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-
+        <PuffLoader color="#36d7b7" loading={loading} size={150}/>
         {data.map((movie, index) => (
             <SwiperSlide key={index}>
               <div>
@@ -87,6 +91,11 @@ function SlideShowBanner() {
                 <div style={{width: "80%", backgroundColor: 'orange', opacity: 0.8, margin: "0 auto", padding: "30px"}}>
                     <h4 style={{fontWeight: "bold"}}>{movie.title}</h4>
                     <p style={{fontWeight: "bold"}}>{movie.overview}</p>
+                    <Link to={`/movieDetail/${movie.id}`} key={movie.id}>
+                      <Stack spacing={2} direction="row">
+                        <Button variant="outlined">Ver ma..</Button>
+                      </Stack>
+                    </Link>
                   </div>
                 </div>
               </div>
