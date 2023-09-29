@@ -1,9 +1,11 @@
+import { Container } from "@mui/material"
+
 function Footer() {
 
     return (
-      <>
-        <div>Footer</div>
-      </>
+      <Container sx={{width: "100%", backgroundColor: "white"}}>
+        <div>Florencia Navarro</div>
+      </Container>
     )
   }
   

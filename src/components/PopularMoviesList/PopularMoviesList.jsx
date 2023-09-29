@@ -10,24 +10,30 @@ import axios from 'axios';
 import { Box } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from 'react-router-dom';
+import useMovies from '../useMovies';
 
 
  function PopularMoviesList() {
-  const [ allMovies, setAllMovies ] = useState([])
+  // const [ allMovies, setAllMovies ] = useState([])
+
+  const { data, getMovies } = useMovies([]) 
+
+  // const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`
 
   useEffect(() => {
-    const getMovies = async () => {
-      try{
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) 
-        setAllMovies(data.results)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getMovies()
+    getMovies(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`)
+    // const getMovies = async () => {
+    //   try{
+    //     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) 
+    //     setAllMovies(data.results)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
+    // getMovies()
   }, [])
 
-  console.log(allMovies)
+  // console.log(allMovies)
 
   return (
     <Box sx={{ maxHeight: 600, overflowX: "hidden", overflowY: "scroll", margin: "100px", "&::-webkit-scrollbar": {
@@ -43,12 +49,13 @@ import { Link } from 'react-router-dom';
         variant="h6"
         noWrap
         component="div"
-        sx={{margin: "10px auto"}}
+        sx={{margin: "10px auto",position: "sticky", top: 0, zIndex: 1, backgroundColor: "#fff"}}
       >
         PELICULAS POPULARES
       </Typography>
       <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'rgba(197, 76, 1, 0.3)' }}>
-        {allMovies.map((movie)=> <Link to={`/movieDetail/${movie.id}`} key={movie.id}> 
+
+        {data.map((movie)=> <Link to={`/movieDetail/${movie.id}`} key={movie.id}> 
         <Box >
          <ListItem alignItems="flex-start" style={{displa:"flex", justifyContent: "space-between"}}>
           <Box sx={{display: "flex", flexDirection: "row"}}> 
