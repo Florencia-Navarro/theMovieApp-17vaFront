@@ -103,6 +103,9 @@ function Header() {
                     <Link to="/movieList/popular">
                       <Typography textAlign="center">POPULARES</Typography>
                     </Link>
+                    <Link to="/searchMovie/movieName">
+                      <Typography textAlign="center">BUSCAR</Typography>
+                    </Link>
                     
                   </MenuItem>
               {/* ))} */}
@@ -151,6 +154,14 @@ function Header() {
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   POPULARES
+                </Button>
+              </Link>
+              <Link to="/searchMovie/movieName">
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  BUSCAR
                 </Button>
               </Link>
             {/* ))} */}

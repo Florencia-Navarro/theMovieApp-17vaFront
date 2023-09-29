@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<SlideShowBanner />}/>
           <Route path="/movieList/:categoryMovie" element={<ContainCards />}/>
           <Route path="/movieDetail/:movie_id" element={<CardDetail />}/>
+          <Route path="/searchMovie/:movieName" element={<CardDetail />}/>
           <Route path="*" element={<h1>NOT FOUND</h1>}/>
         </Routes>
         <Footer />
