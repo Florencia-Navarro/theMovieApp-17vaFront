@@ -40,7 +40,7 @@ function SlideShowBanner() {
     getMovies()
   }, [categoryMovie])
 
-  console.log(allMovies)
+  // console.log(allMovies)
 
   return (
     <>

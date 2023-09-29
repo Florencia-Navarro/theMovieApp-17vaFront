@@ -13,3 +13,5 @@ function CardsMovie({ id, title, poster_path, overview }){
 }
 
 export default CardsMovie
+
+// <Link to={`/movieDetail/${id}`}></Link>

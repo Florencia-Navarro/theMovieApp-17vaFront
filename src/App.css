@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: f9f8f7;
 }
 
 /* #root {
@@ -46,3 +47,4 @@ body {
 .read-the-docs {
   color: #888;
 } */
+ 

@@ -19,24 +19,26 @@ function ContainCards() {
           console.log(error)
         }
       }
-      getMovies()
+    getMovies()
     } else {
       
-    }
-    const getMovies = async () => {
-      try{
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${categoryMovie}?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) /* https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${apiKey}&query=${keywordSearch} */
-        setAllMovies(data.results)
-      } catch (error) {
-        console.log(error)
+      const getMovies = async () => {
+        try{
+          const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${categoryMovie}?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) /* https://api.themoviedb.org/3/search/movie?language=es-ES&page=${currentPage}&api_key=${apiKey}&query=${keywordSearch} */
+          setAllMovies(data.results)
+        } catch (error) {
+          console.log(error)
+        }
       }
+      getMovies()
     }
-    getMovies()
   }, [categoryMovie])
 
-  console.log(allMovies)
+  // console.log(allMovies)
 
-  console.log(categoryMovie)
+  // console.log(categoryMovie)
+
+  // https://api.themoviedb.org/3/search/movie?query=Jack+Reacher&api_key=a5c720fc0d8fdad4f6cd196d4c5cf58a
 
     return (
       <>
