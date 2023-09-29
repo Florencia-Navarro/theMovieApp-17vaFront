@@ -15,8 +15,10 @@ import './../../styles.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import useMovies from "../useMovies";
 
 function SlideShowBanner() {
+
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -24,20 +26,25 @@ function SlideShowBanner() {
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
-  const [ allMovies, setAllMovies ] = useState([])
+  // const [ allMovies, setAllMovies ] = useState([])
+
+  const { data, getMovies } = useMovies([])
   
   const { categoryMovie } = useParams()
 
+  // const urlCarrousel = `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`
+
   useEffect(() => {
-    const getMovies = async () => {
-      try{
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`) 
-        setAllMovies(data.results)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getMovies()
+    getMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`)
+    // const getMovies = async () => {
+    //   try{
+    //     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`) 
+    //     setAllMovies(data.results)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
+    // getMovies()
   }, [categoryMovie])
 
   // console.log(allMovies)
@@ -60,7 +67,7 @@ function SlideShowBanner() {
         className="mySwiper"
       >
 
-        {allMovies.map((movie, index) => (
+        {data.map((movie, index) => (
             <SwiperSlide key={index}>
               <div>
               <div
