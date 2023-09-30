@@ -1,6 +1,9 @@
-import { useParams } from "react-router-dom"
 import useMovies from "../useMovies"
+
 import { useEffect } from "react"
+
+import { useParams } from "react-router-dom"
+
 import YouTube from "react-youtube"
 
 function CardTrailerMovie(){
@@ -15,9 +18,6 @@ function CardTrailerMovie(){
          
     }, [])
 
-
-    // console.log(data)
-
     if (data[0] && typeof data[0].key !== 'undefined' && data[0].official) {
          console.log("si hay trailer!!!!")
       } else {
@@ -30,15 +30,13 @@ function CardTrailerMovie(){
         height: '390',
         width: '640',
         playerVars: {
-          // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
+        autoplay: 1,
         },
       };
 
     return(
-        <div>
+        <div style={{width: "100%", height: "100vh", backgroundColor: "#606d80",display: "flex", justifyContent: "center", alignItems: "center"}}>
         {data[0] && data[0].key ? (
-        //   <div>key del video: {data[0].key}</div>
             <YouTube videoId={data[0].key} opts={opts}/>
         ) : (
           <div>Cargando...</div>

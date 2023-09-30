@@ -1,23 +1,22 @@
 import MoviesList from "../MoviesList/MoviesLists"
-import React, { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import useMovies from "../useMovies";
 
 import { Link, useParams } from "react-router-dom"
-import axios from "axios"
 
-// Import Swiper styles
+import  { useEffect, useRef, useState } from 'react';
+
+import './../../styles.css';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import './../../styles.css';
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import useMovies from "../useMovies";
 import { Button, Stack } from "@mui/material";
+
 import { PuffLoader } from "react-spinners";
+
 
 function SlideShowBanner() {
 
@@ -28,30 +27,18 @@ function SlideShowBanner() {
     progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
   };
 
-  // const [ allMovies, setAllMovies ] = useState([])
   const [ loading, setLoading ] = useState(true)
 
   const { data, getMovies } = useMovies([])
   
   const { categoryMovie } = useParams()
 
-  // const urlCarrousel = `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`
-
   useEffect(() => {
     getMovies(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`)
-    // const getMovies = async () => {
-    //   try{
-    //     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_APY_KEY}&language=es-ES`) 
-    //     setAllMovies(data.results)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
-    // getMovies()
+
     setLoading(false)
   }, [categoryMovie])
 
-  // console.log(allMovies)
 
   return (
     <>
@@ -87,13 +74,13 @@ function SlideShowBanner() {
                 }}
               >
               </div>
-              <div style={{position: "absolute", top: 300, width: "100%", height: "30%", opacity: 0.6, }}>
-                <div style={{width: "80%", backgroundColor: 'orange', opacity: 0.8, margin: "0 auto", padding: "30px"}}>
-                    <h4 style={{fontWeight: "bold"}}>{movie.title}</h4>
-                    <p style={{fontWeight: "bold"}}>{movie.overview}</p>
-                    <Link to={`/movieDetail/${movie.id}`} key={movie.id}>
-                      <Stack spacing={2} direction="row">
-                        <Button variant="outlined">Ver ma..</Button>
+              <div style={{position: "absolute", top: 250, width: "100%", height: "30%", opacity: 0.6, }}>
+                <div style={{width: "80%", backgroundColor: '#2b4c7e', opacity: 0.98, margin: "0 auto 10px ", padding: "5px"}}>
+                    <h4 style={{fontFamily: "couture", color: "white", fontSize: "0.9rem"}}>{movie.title}</h4>
+                    <p style={{fontFamily: "couture", color: "white", fontSize: "0.9rem"}}>{movie.overview}</p>
+                    <Link to={`/movieDetail/${movie.id}`} key={movie.id} style={{textDecoration: "none", width: "90%"}}>
+                      <Stack spacing={2} >
+                        <Button variant="outlined" sx={{color: "white", padding:"10px 50px"}}>Ver mas...</Button>
                       </Stack>
                     </Link>
                   </div>

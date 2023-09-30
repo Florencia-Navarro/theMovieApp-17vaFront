@@ -1,18 +1,18 @@
+import { useState } from 'react';
+import { Link } from "react-router-dom";
+import './../../App.css';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
 
-//  const pages = ['Home', 'Ultimos lanzamientos', 'Populares'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -35,11 +35,13 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{padding: "20px 5px", backgroundColor: "#1f1f20"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <Link to="/">
+          <Link to="/" style={{textDecoration:"none"}}>
+            <Container >
+              <img src="/src/assets/img/clapperboard-29986_1280.png" style={{width: "80px", paddingLeft: "80px"}}/>
+            </Container>
             <Typography
               variant="h6"
               noWrap
@@ -48,11 +50,13 @@ function Header() {
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
+                fontFamily: 'Gobold',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: 'inherit',
+                color: '#567ebb',
                 textDecoration: 'none',
+                fontSize: "2rem",
+                
               }}
             >
               THE MOVIE APP
@@ -60,56 +64,6 @@ function Header() {
           </Link>
           
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {/* {pages.map((page) => ( */}
-                
-                  <MenuItem  onClick={handleCloseNavMenu}>
-                    <Link to="/">
-                      <Typography textAlign="center">HOME</Typography>
-                    </Link>
-                    <Link to="/movieList/now_playing">
-                      <Typography textAlign="center">ULTIMOS LANZAMIENTOS</Typography>
-                    </Link>
-                    <Link to="/movieList/popular">
-                      <Typography textAlign="center">POPULARES</Typography>
-                    </Link>
-                    <Link to="/searchMovie/movieName">
-                      <Typography textAlign="center">BUSCAR</Typography>
-                    </Link>
-                    
-                  </MenuItem>
-              {/* ))} */}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -119,18 +73,64 @@ function Header() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Gobold',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            THE MOVIE APP
           </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                  
+                }}
+              >                
+                <MenuItem  onClick={handleCloseNavMenu} sx={{display: "flex", flexDirection: "column"}}>
+                  <Link to="/" style={{textDecoration:"none"}}>
+                    <Typography textAlign="center"  sx={{padding: "10px 5px", color: "black"}}>HOME</Typography>
+                  </Link>
+                  <Link to="/movieList/now_playing" style={{textDecoration:"none"}}>
+                    <Typography textAlign="center" sx={{padding: "10px 5px", color: "black"}}>ULTIMOS LANZAMIENTOS</Typography>
+                  </Link>
+                  <Link to="/movieList/popular" style={{textDecoration:"none"}}>
+                    <Typography textAlign="center" sx={{padding: "10px 5px", color: "black"}}>POPULARES</Typography>
+                  </Link>
+                  <Link to="/searchMovie/movieName" style={{textDecoration:"none"}}>
+                    <Typography textAlign="center" sx={{padding: "10px 5px", color: "black"}}>BUSCAR</Typography>
+                  </Link>
+                  
+                </MenuItem>
+              </Menu>
+            </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {pages.map((page) => ( */}
-              <Link to="/">
+              <Link to="/" style={{textDecoration:"none"}}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -138,7 +138,7 @@ function Header() {
                   HOME
                 </Button>
               </Link>
-              <Link to="/movieList/now_playing">
+              <Link to="/movieList/now_playing" style={{textDecoration:"none"}}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -146,7 +146,7 @@ function Header() {
                   ULTIMOS LANZAMIENTOS
                 </Button>
               </Link>
-              <Link to="/movieList/popular">
+              <Link to="/movieList/popular" style={{textDecoration:"none"}}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -154,7 +154,7 @@ function Header() {
                   POPULARES
                 </Button>
               </Link>
-              <Link to="/searchMovie/movieName">
+              <Link to="/searchMovie/movieName" style={{textDecoration:"none"}}>
                 <Button
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
@@ -162,15 +162,9 @@ function Header() {
                   BUSCAR
                 </Button>
               </Link>
-            {/* ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip> */}
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -197,6 +191,6 @@ function Header() {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
-export default Header;
+export default Header

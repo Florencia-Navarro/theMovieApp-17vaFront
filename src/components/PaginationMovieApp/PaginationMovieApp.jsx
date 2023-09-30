@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
   }
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} >
       <Pagination count={500} onChange={handleChangePage} page={currentPage} shape="rounded" />
       
     </Stack>

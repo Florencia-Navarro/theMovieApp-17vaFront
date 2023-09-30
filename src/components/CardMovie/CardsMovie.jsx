@@ -1,17 +1,28 @@
 import { Link } from "react-router-dom"
 
-function CardsMovie({ id, title, poster_path, overview }){
+import { Button, Card, CardMedia, Stack } from "@mui/material"
+
+function CardsMovie({ id, title, poster_path }){
     return(
-        <Link to={`/movieDetail/${id}`}>
-            <div  style={{width: 300,  margin: "50px"}}> 
-                <h3>{title}</h3>
-                <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt={title} style={{width: 100, height: 150}}/>
-                
-            </div>
-        </Link>
+            <Card sx={{ maxWidth: 300, maxHeight: 800, margin: "20px", boxShadow: "-6px -5px 22px 8px rgba(0,0,0,0.75)"}}>
+            
+                <CardMedia
+                    component="img"
+                    height="450"
+                    image={`https://image.tmdb.org/t/p/original${poster_path}`}
+                    alt={title}
+                />
+                <Link to={`/movieDetail/${id}`} key={id} style={{textDecoration: "none", width: "90%"}}>
+                    <Stack spacing={2} >
+                        <Button variant="outlined" sx={{color: "black", padding:"10px 50px"}}>Ver mas...</Button>
+                    </Stack>
+                </Link>
+                    
+            </Card>
+
+       
     )
 }
 
 export default CardsMovie
 
-// <Link to={`/movieDetail/${id}`}></Link>
