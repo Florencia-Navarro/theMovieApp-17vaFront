@@ -2,12 +2,14 @@ import CardDetail from "./components/CardDetail/CardDetail"
 import ContainCards from "./components/ContainCards/ContainCards"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
-import "./App.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import SearchMovieInput from "./components/SearchMovieInput/SearchMovieInput"
 import { useState } from "react"
 import SlideShowBanner from "./components/SlideShowBanner/SlideShowBanner"
 import CardTrailerMovie from "./components/CardTrailerMovie/CardTrailerMovie"
+
+import "./App.css"
+
 
 function App() {
   const [ nameMovie, setNameMovie ] = useState()
