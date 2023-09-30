@@ -1,4 +1,9 @@
+import useMovies from '../useMovies';
+
 import {  useEffect } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -6,56 +11,44 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-// import axios from 'axios';
 import { Box } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { Link } from 'react-router-dom';
-import useMovies from '../useMovies';
+
 
 
  function TopRatedMoviesList() {
-  // const [ allMovies, setAllMovies ] = useState([])
 
   const { data, getMovies } = useMovies([]) 
 
-  // const urlTopRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`
 
   useEffect(() => {
+
     getMovies(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`)
-    // const getMovies = async () => {
-    //   try{
-    //     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`) 
-    //     setAllMovies(data.results)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // }
-    // getMovies()
+
   }, [])
 
-  // console.log(allMovies)
 
   return (
-    <Box sx={{ maxHeight: 600, overflowX: "hidden", overflowY: "scroll", margin: "100px", "&::-webkit-scrollbar": {
+    <Box sx={{width: "1000px", maxHeight: 300, overflowX: "hidden", overflowY: "scroll", margin: "100px", "&::-webkit-scrollbar": {
       width: "10px",
-      backgroundColor: "#f1f1f1",
+      backgroundColor: "#dce0e6",
     }, "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#888",
+      backgroundColor: "#2b4c7e",
       borderRadius: "5px",
     }, "&::-webkit-scrollbar-thumb:hover": {
-      backgroundColor: "#555",
+      backgroundColor: "#567ebb",
     }}}>
       <Typography
         variant="h6"
         noWrap
         component="div"
-        sx={{margin: "10px auto"}}
+        sx={{margin: "10px auto",position: "sticky", top: 0, zIndex: 1, backgroundColor: "#2b4c7e",  padding: "20px 15px"}}
       >
         PELICULAS MEJOR PUNTADAS
       </Typography>
-      <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'rgba(197, 76, 1, 0.3)' }}>
+      <List sx={{ width: '100%', bgcolor: 'white', border: "solid #dce0e6 1px"}}>
 
-        {data.map((movie)=> <Link to={`/movieDetail/${movie.id}`} key={movie.id}> 
+        {data.map((movie)=> <Link to={`/movieDetail/${movie.id}`} key={movie.id} style={{textDecoration: "none"}}> 
         <Box >
          <ListItem alignItems="flex-start" style={{displa:"flex", justifyContent: "space-between"}}>
           <Box sx={{display: "flex", flexDirection: "row"}}> 
@@ -64,10 +57,10 @@ import useMovies from '../useMovies';
             </ListItemAvatar>
             <ListItemText
               primary={movie.title}
-              sx={{margin: "auto 0"}}
+              sx={{margin: "auto 0", color: "black"}}
             />
           </Box>
-          <ArrowForwardIosIcon sx={{margin: "auto 0"}}/>
+          <ArrowForwardIosIcon sx={{margin: "auto 0", color: "black"}}/>
         </ListItem>
         <Divider variant="inset" component="li" />
         </Box>

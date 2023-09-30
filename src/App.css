@@ -1,9 +1,20 @@
+@font-face {
+  font-family: couture;
+  src: url("./assets/fonts/couture-bld.otf");
+}
+@font-face {
+  font-family: Gobold;
+  src: url("./assets/fonts/Gobold\ Regular.otf");
+}
+
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: f9f8f7;
 }
+
 
 /* #root {
   max-width: 1280px;

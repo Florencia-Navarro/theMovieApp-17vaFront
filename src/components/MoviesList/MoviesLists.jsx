@@ -1,14 +1,15 @@
-import { Box } from "@mui/material"
 import PopularMoviesList from "../PopularMoviesList/PopularMoviesList"
 import TopRatedMoviesList from "../TopRatedMoviesList/TopRatedMoviesList"
+
+import { Container } from "@mui/material"
 
 function MoviesList() {
 
     return (
-      <Box sx={{display: "flex", flexDirection: "row"}}>
+      <Container sx={{with: "100vw",display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
         <PopularMoviesList />
         <TopRatedMoviesList />
-      </Box>
+      </Container>
     )
   }
   
