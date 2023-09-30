@@ -6,7 +6,7 @@ This project is made to be evaluated in the final instance of module 6, to Front
 
 ---
 
-**¡Here you can see theThe Movie App web page!** Click here [aquí](florencia-navarro.github.io/weavers-wan)
+**¡Here you can see theThe Movie App web page!** Click here [aquí]()
 
 ---
 
