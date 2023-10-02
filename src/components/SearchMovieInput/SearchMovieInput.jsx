@@ -14,7 +14,7 @@ function SearchMovieInput({setNameMovie }) {
   return (
     <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 , margin: "100"}}
+      sx={{ p: '2px 4px', display: 'flex', justifyContent: 'center', width: 400 , margin: "50px auto"}}
     >
      
       <InputBase

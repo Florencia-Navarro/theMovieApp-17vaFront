@@ -9,10 +9,14 @@ import axios from "axios"
 
 import { Box } from "@mui/material"
 
+import { PuffLoader } from "react-spinners";
+
+
 
 function ContainCards( { nameMovie }) {
   const [ allMovies, setAllMovies ] = useState([])
   const [ currentPage, setCurrentPage ] = useState(1)
+  const [ loading, setLoading ] = useState(true)
   
   const { categoryMovie } = useParams()
 
@@ -31,6 +35,8 @@ function ContainCards( { nameMovie }) {
   
         const { data } = await axios.get(apiUrl)
         setAllMovies(data.results)
+        setLoading(false)
+
       } catch (error) {
         console.log(error)
       }
@@ -43,11 +49,15 @@ function ContainCards( { nameMovie }) {
     return (
       <>
       {allMovies.length === 0 ? (
-        <p>No se encontraron resultados</p>
+        // <p style={{width: "100%", height: "100vh", fontFamily: "Gobold" ,marginTop: "100px", display: "flex", justifyContent: "center"}}>NO SE ENCONTRARON RESULTADOS</p>
+        <div style={{width: "100%", height: "100vh", marginTop: "100px", display: "flex", justifyContent: "center"}}>
+          <PuffLoader color="#606d80" loading={loading} size={150} />
+        </div>
       ) : (
-        <Box sx={{display: "flex", flexWrap: "wrap"}}>
-          {allMovies.map(({ id, title, poster_path, overview }) => (
+        <Box sx={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+          {allMovies.map(({ id, title, poster_path }) => (
             <CardsMovie
+              id={id}
               key={id}
               title={title}
               poster_path={poster_path}
