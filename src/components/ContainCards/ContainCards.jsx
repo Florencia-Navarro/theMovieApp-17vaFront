@@ -49,7 +49,6 @@ function ContainCards( { nameMovie }) {
     return (
       <>
       {allMovies.length === 0 ? (
-        // <p style={{width: "100%", height: "100vh", fontFamily: "Gobold" ,marginTop: "100px", display: "flex", justifyContent: "center"}}>NO SE ENCONTRARON RESULTADOS</p>
         <div style={{width: "100%", height: "100vh", marginTop: "100px", display: "flex", justifyContent: "center"}}>
           <PuffLoader color="#606d80" loading={loading} size={150} />
         </div>
