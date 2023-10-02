@@ -29,7 +29,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
   return (
-    <Box sx={{width: "1000px", maxHeight: 300, overflowX: "hidden", overflowY: "scroll", margin: "100px", borderRadius: "5px", "&::-webkit-scrollbar": {
+    <Box sx={{width: { xs: "80vw", md: "1000px"}, maxHeight: 300, overflowX: "hidden", overflowY: "scroll", margin: { xs: "50px auto ", md: "80px"}, borderRadius: "5px", "&::-webkit-scrollbar": {
       width: "10px",
       backgroundColor: "#dce0e6",
       }, "&::-webkit-scrollbar-thumb": {

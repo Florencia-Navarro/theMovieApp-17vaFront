@@ -36,9 +36,9 @@ function CardDetail () {
 
   return (
     <div style={{backgroundColor: "#dce0e6", padding: "50px"}}>
-      <div style={{height: "100vh",backgroundColor: "#dce0e6", backgroundImage: `url(https://image.tmdb.org/t/p/original${data.poster_path})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", display: "flex"}}>
+      <div style={{height: { xs: "300px", md: "100vh"}, backgroundColor: "#dce0e6", backgroundImage: `url(https://image.tmdb.org/t/p/original${data.poster_path})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", display: "flex"}}>
       
-        <Card sx={{ maxWidth: 400, maxHeight: 850, margin: "auto 300px", boxShadow: "-6px -5px 22px 8px rgba(0,0,0,0.75)"}}>
+        <Card sx={{ maxWidth: 400, maxHeight: 850, margin: { xs: "10px", md: "auto 300px"}, boxShadow: "-6px -5px 22px 8px rgba(0,0,0,0.75)"}}>
           
           <CardMedia
             component="img"

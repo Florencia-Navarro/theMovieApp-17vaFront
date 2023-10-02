@@ -39,7 +39,7 @@ function Header() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" style={{textDecoration:"none"}}>
-            <Container >
+            <Container sx={{display: { xs: 'none', md: 'flex' }}}>
               <img src="/src/assets/img/clapperboard-29986_1280.png" style={{width: "80px", paddingLeft: "80px"}}/>
             </Container>
             <Typography
@@ -63,25 +63,30 @@ function Header() {
             </Typography>
           </Link>
           
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="span"
-           
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'Gobold',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            THE MOVIE APP
-          </Typography>
+          <Link to="/" style={{textDecoration:"none"}}>
+            <Container sx={{display: { xs: 'flex', md: 'none' }}}>
+                <img src="/src/assets/img/clapperboard-29986_1280.png" style={{width: "20px", paddingLeft: "auto"}}/>
+            </Container>
+            <Typography
+              variant="h5"
+              noWrap
+              component="span"
+            
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'Gobold',
+                fontWeight: 700,
+                letterSpacing: '.1rem',
+                color: '#567ebb',
+                textDecoration: 'none',
+                marginRight: "100px"
+              }}
+            >
+              THE MOVIE APP
+            </Typography>
+          </Link>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
