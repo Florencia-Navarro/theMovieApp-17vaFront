@@ -15,7 +15,6 @@ function CardTrailerMovie(){
     const { data, getMovies } = useMovies({})
 
     const { movie_id } = useParams()
-    console.log(data)
 
     useEffect(() => {
         getMovies(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${import.meta.env.VITE_TMDB_APY_KEY}`)

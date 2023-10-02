@@ -27,8 +27,6 @@ function CardDetail () {
 
   }, [])
 
-  console.log(data)
-
   if (!data){
     return <div>Cargando...</div>
   }
@@ -66,11 +64,6 @@ function CardDetail () {
               {data.overview}
             </Typography>
           </CardContent>
-          {/* <Link to="/" style={{textDecoration: "none", margin: "5px 10px"}} >
-            <Stack spacing={2} direction="row">
-              <Button sx={{color: "black", border: "solid #606d80 1px"}}>Atras</Button>
-            </Stack>
-          </Link> */}
             
         </Card>
       </div>
