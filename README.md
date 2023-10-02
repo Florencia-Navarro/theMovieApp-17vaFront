@@ -2,11 +2,23 @@
 
 ---
 
-This project is made to be evaluated in the final instance of module 6, to Fronted Development career, dictated by the institution ADA. This project is based on the creation of a web page of consultation or search of movies, both the latest releases, as well as the classics of always.
+This project is made to be evaluated in the final instance of module 6, to Fronted Development career, dictated by the institution ADA. This project is based on the creation of a web page of consultation or search of movies, both the latest releases, as well as the classics of always, with the knowledge acquired in the course of module 6 about React. Different libraries were used for this project:
+
+-MUI Material
+
+-Axios
+
+-React
+
+-Youtube
+
+-Swiper
+
+-React-spinners
 
 ---
 
-**¡Here you can see theThe Movie App web page!** Click here [aquí]()
+**¡Here you can see theThe Movie App web page!** Click here [aquí](https://the-movie-app-17va-front.vercel.app/)
 
 ---
 
