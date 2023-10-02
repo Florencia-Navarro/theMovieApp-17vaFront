@@ -2,22 +2,24 @@ import { useState } from "react"
 import axios from "axios"
 
 function useMovies (initialValue){
-    const [data, setData] = useState(initialValue)
-    const [ loading, setLoading ] = useState(true)
+    const [moviesData, setMoviesData] = useState(initialValue)
     
     const getMovies = async (url) => {
-      setLoading(true)
-      setData([])
         try{
-          const { data } = await axios.get(url) 
-          data.results ? setData(data.results) : setData(data)
-          setLoading(false)
+          const response = await axios.get(url) 
+          const responseData = response.data
+          
+          if(responseData.results){
+            setMoviesData(responseData.results)
+          } else {
+            setMoviesData(responseData)
+          }
           
         } catch (error) {
           console.log(error)
         }
       }
-      return {data, getMovies, loading} 
+      return { data: moviesData, getMovies } 
 
 }
 

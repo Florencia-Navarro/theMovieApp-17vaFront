@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 import { Button, Card, CardMedia, Stack } from "@mui/material"
 
 function CardsMovie({ id, title, poster_path }){
+
+    console.log(id)
+
     return(
             <Card sx={{ maxWidth: 300, maxHeight: 800, margin: "20px", boxShadow: "-6px -5px 22px 8px rgba(0,0,0,0.75)"}}>
             

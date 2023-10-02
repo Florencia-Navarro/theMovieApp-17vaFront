@@ -57,7 +57,10 @@ function SlideShowBanner() {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
-        <PuffLoader color="#606d80" loading={loading} size={150}/>
+        <div style={{width: "100%", height: "100vh", marginTop: "100px", display: "flex", justifyContent: "center"}}>
+          <PuffLoader color="#606d80" loading={loading} size={150} />
+        </div>
+
         {data.map((movie, index) => (
             <SwiperSlide key={index}>
               <div>

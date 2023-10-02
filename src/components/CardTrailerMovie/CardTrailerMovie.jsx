@@ -21,8 +21,8 @@ function CardTrailerMovie(){
     if (data[0] && typeof data[0].key !== 'undefined' && data[0].official) {
          console.log("si hay trailer!!!!")
       } else {
-        return <div>
-            <span>No se encontró Trailer</span>
+        return <div style={{width: "100%", height: "100vh", fontFamily: "Gobold", backgroundColor: "#606d80",display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <span>ESTA PELÍCULA NO POSEE TRAILER</span>
             </div>;
       }
     
@@ -36,12 +36,12 @@ function CardTrailerMovie(){
 
     return(
         <div style={{width: "100%", height: "100vh", backgroundColor: "#606d80",display: "flex", justifyContent: "center", alignItems: "center"}}>
-        {data[0] && data[0].key ? (
-            <YouTube videoId={data[0].key} opts={opts}/>
-        ) : (
-          <div>Cargando...</div>
-        )}
-      </div>
+          {data[0] && data[0].key ? (
+              <YouTube videoId={data[0].key} opts={opts}/>
+          ) : (
+            <div style={{width: "100%", height: "100vh", fontFamily: "Gobold", display: "flex", justifyContent: "center", alignItems: "center"}}>CARGANDO...</div>
+          )}
+        </div>
     )
 }
 
